@@ -46,6 +46,10 @@ public class JwtService {
     public Claims validateAccessToken(String token) {
         Claims claims = parseClaims(token);
 
+        if (Date.from(Instant.now()).after(claims.getExpiration())) {
+            throw new JwtException("Expired access token");
+        }
+
         if (!"access".equals(claims.get("type"))) {
             throw new JwtException("Not an access token");
         }
@@ -55,6 +59,10 @@ public class JwtService {
 
     public Claims validateRefreshToken(String token) {
         Claims claims = parseClaims(token);
+
+        if (Date.from(Instant.now()).after(claims.getExpiration())) {
+            throw new JwtException("Expired access token");
+        }
 
         if (!"refresh".equals(claims.get("type"))) {
             throw new JwtException("Not a refresh token");

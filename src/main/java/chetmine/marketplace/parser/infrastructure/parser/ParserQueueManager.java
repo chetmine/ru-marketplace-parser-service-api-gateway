@@ -35,7 +35,7 @@ public class ParserQueueManager {
 
     private final Map<String, SimpleMessageListenerContainer> activeListeners = new ConcurrentHashMap<>();
 
-    public void startParsingSession(String sessionId, String taskType, String query) {
+    public void startParsingSession(String sessionId, String taskType, String query, TaskParams params) {
         String queueName = resolveQueueName(taskType);
 
         Queue queue = new Queue(queueName, true, false, false);
@@ -54,9 +54,12 @@ public class ParserQueueManager {
         container.start();
 
 
-        TaskParams params = TaskParams.builder()
-                .retryOnParserExposed(true)
-                .build();
+//        TaskParams params = TaskParams.builder()
+//                .retryOnParserExposed(true)
+//                .marketplace("ozon")
+//                .build();
+
+        params.setRetryOnParserExposed(true);
 
         ParseTask task = ParseTask.builder()
                 .sessionId(sessionId)

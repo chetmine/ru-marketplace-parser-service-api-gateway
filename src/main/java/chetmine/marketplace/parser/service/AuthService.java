@@ -1,7 +1,7 @@
 package chetmine.marketplace.parser.service;
 
 import chetmine.marketplace.parser.dto.AuthTokensDTO;
-import chetmine.marketplace.parser.model.AuthException;
+import chetmine.marketplace.parser.exception.AuthException;
 import chetmine.marketplace.parser.entity.User;
 import chetmine.marketplace.parser.entity.UserStatus;
 import lombok.RequiredArgsConstructor;

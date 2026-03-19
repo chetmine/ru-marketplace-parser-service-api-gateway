@@ -20,15 +20,15 @@ public class RabbitMQConfig {
     public static final String QUEUE_PREVIEW = "marketplace.parser.preview";
     public static final String QUEUE_DETAILED = "marketplace.parser.detailed";
 
-    @Bean
-    public DirectExchange tasksExchange() {
-        return new DirectExchange(TASKS_EXCHANGE, true, false);
-    }
+//    @Bean
+//    public DirectExchange tasksExchange() {
+//        return new DirectExchange(TASKS_EXCHANGE, true, false);
+//    }
 
-    @Bean
-    public TopicExchange parserExchange() {
-        return new TopicExchange(PARSER_EXCHANGE, true, false);
-    }
+//    @Bean
+//    public TopicExchange parserExchange() {
+//        return new TopicExchange(PARSER_EXCHANGE, true, false);
+//    }
 
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {

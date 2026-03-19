@@ -1,3 +1,16 @@
 app:
   jwt:
     secret: ${JWT_SECRET}
+  cleanup:
+    pending-users:
+      expiry-minutes: 30
+      interval-ms: 300000
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  show-actuator: false

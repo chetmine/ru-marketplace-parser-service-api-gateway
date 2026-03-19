@@ -1,0 +1,19 @@
+services:
+  api-gateway:
+    container_name: api-gateway-service
+    build: .
+    ports:
+      - "8080:8080"
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - JAVA_OPTS=-Xms128m -Xmx384m -XX:+UseG1GC
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+        limits:
+          cpus: '0.50'
+          memory: 512M

@@ -1,10 +1,11 @@
 package chetmine.marketplace.parser.infrastructure.ws;
 
+import chetmine.marketplace.parser.dto.parser.TaskParams;
 import chetmine.marketplace.parser.dto.ws.WsInboundMessage;
 import chetmine.marketplace.parser.dto.ws.WsOutboundMessage;
 import chetmine.marketplace.parser.entity.User;
 import chetmine.marketplace.parser.infrastructure.parser.ParserQueueManager;
-import chetmine.marketplace.parser.model.RequestLimitExceededException;
+import chetmine.marketplace.parser.exception.RequestLimitExceededException;
 import chetmine.marketplace.parser.model.WsSession;
 import chetmine.marketplace.parser.service.SubscriptionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +17,6 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import java.io.IOException;
 import java.security.Principal;
 
 @Component
@@ -62,6 +62,7 @@ public class SearchWebSocketHandler extends TextWebSocketHandler {
 
         String taskType = inbound.getType();
         String query = inbound.getQuery();
+        TaskParams params = inbound.getParams();
 
 //        if ("preview".equals(taskType)) {
 //            Optional<PreviewResult> cached = searchCacheService.getPreview(user.getId(), query);
@@ -101,7 +102,7 @@ public class SearchWebSocketHandler extends TextWebSocketHandler {
 
         wsSessionRegistry.register(wsSession);
 
-        parserQueueManager.startParsingSession(user.getSessionId(), taskType, query);
+        parserQueueManager.startParsingSession(user.getSessionId(), taskType, query, params);
     }
 
     @Override

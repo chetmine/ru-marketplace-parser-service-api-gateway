@@ -4,7 +4,7 @@ import chetmine.marketplace.parser.dto.SubscriptionStatusDto;
 import chetmine.marketplace.parser.entity.Subscription;
 import chetmine.marketplace.parser.entity.SubscriptionPlan;
 import chetmine.marketplace.parser.entity.User;
-import chetmine.marketplace.parser.model.RequestLimitExceededException;
+import chetmine.marketplace.parser.exception.RequestLimitExceededException;
 import chetmine.marketplace.parser.repo.SubscriptionRepo;
 import chetmine.marketplace.parser.repo.UserRepo;
 import jakarta.transaction.Transactional;

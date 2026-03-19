@@ -1,6 +1,6 @@
 package chetmine.marketplace.parser.service;
 
-import chetmine.marketplace.parser.model.RiskTokenException;
+import chetmine.marketplace.parser.exception.RiskTokenException;
 import org.jspecify.annotations.NonNull;
 import org.springframework.data.redis.core.RedisTemplate;
 

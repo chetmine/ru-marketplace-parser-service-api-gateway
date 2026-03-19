@@ -1,4 +1,4 @@
-package chetmine.marketplace.parser.model;
+package chetmine.marketplace.parser.exception;
 
 public class AuthException extends RuntimeException {
     public AuthException(String message) {

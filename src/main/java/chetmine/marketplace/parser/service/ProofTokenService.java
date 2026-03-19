@@ -2,7 +2,7 @@ package chetmine.marketplace.parser.service;
 
 import chetmine.marketplace.parser.model.ProofTokenAction;
 import chetmine.marketplace.parser.model.ProofTokenData;
-import chetmine.marketplace.parser.model.ProofTokenException;
+import chetmine.marketplace.parser.exception.ProofTokenException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
